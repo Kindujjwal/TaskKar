@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#141317">
+    <meta name="description" content="A quiet place to organize your day. Private, personal, and works offline.">
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="icon" href="./icons/favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="./fonts/roboto_serif.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="./styles.css">
+    <title>TaskKar</title>
+  </head>
+  <body>
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="i-add" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+      <symbol id="i-check-circle" viewBox="0 0 24 24"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="m18 6-12 12M6 6l12 12"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-more" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.7" cy="10.7" r="6.7"/><path d="m16 16 4 4"/></symbol>
+      <symbol id="i-note" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M14 3v6h5M9 14h6M9 18h6"/></symbol>
+      <symbol id="i-focus" viewBox="0 0 24 24"><path d="M12 21s8-4 8-12V4l-8-2-8 2v5c0 8 8 12 8 12z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M5 7l1 14h12l1-14M9 7V4h6v3"/></symbol>
+      <symbol id="i-restore" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 2.8-6.5L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></symbol>
+      <symbol id="i-edit" viewBox="0 0 24 24"><path d="m14 5 5 5M4 20l4.5-1 11-11a2.1 2.1 0 0 0-3-3l-11 11L4 20z"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 12 7-12 7z"/></symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5h3v14H8zM15 5h3v14h-3z"/></symbol>
+      <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 4v6h6"/><path d="M5.6 9A8 8 0 1 1 4 14"/></symbol>
+      <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M4 8h13v7a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17M3 22h17M8 3v2m5-2v2"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-11-2 14"/></symbol>
+      <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-1.8 1.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5v.1h-2.6v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1-1.8-1.8.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H6.3v-2.6h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1 1.8-1.8.1.1a1.7 1.7 0 0 0 1.9.3 1.7 1.7 0 0 0 1-1.5v-.1h2.6v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1 1.8 1.8-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.5 1h.1V14h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    </svg>
+
+    <div class="app-shell" id="app">
+      <header class="top-bar">
+        <div class="top-bar__row">
+          <div class="popup-anchor">
+            <button class="icon-button" id="menu-button" type="button" aria-label="Open navigation menu" aria-haspopup="menu" aria-expanded="false">
+              <svg class="icon"><use href="#i-menu"></use></svg>
+            </button>
+            <div class="popup-menu" id="navigation-menu" role="menu" hidden>
+              <button class="popup-menu__item" role="menuitem" data-navigate="todo"><svg class="icon"><use href="#i-check-circle"></use></svg>Todo</button>
+              <button class="popup-menu__item" role="menuitem" data-navigate="notes"><svg class="icon"><use href="#i-note"></use></svg>Notes</button>
+              <button class="popup-menu__item" role="menuitem" data-navigate="focus"><svg class="icon"><use href="#i-focus"></use></svg>Focus</button>
+              <button class="popup-menu__item" role="menuitem" data-navigate="donation"><svg class="icon"><use href="#i-coffee"></use></svg>Donation</button>
+              <button class="popup-menu__item" role="menuitem" data-navigate="trash"><svg class="icon"><use href="#i-trash"></use></svg>Trash</button>
+            </div>
+          </div>
+          <h1 class="top-bar__title" id="page-title">Title</h1>
+          <div class="search-field" id="search-field" role="search" hidden>
+            <svg class="icon search-field__icon"><use href="#i-search"></use></svg>
+            <input id="search-input" type="search" placeholder="Search" autocomplete="off" aria-label="Search this section">
+            <button class="icon-button icon-button--small" id="clear-search" type="button" aria-label="Clear search"><svg class="icon"><use href="#i-close"></use></svg></button>
+          </div>
+          <div class="popup-anchor">
+            <button class="icon-button" id="more-button" type="button" aria-label="More options" aria-haspopup="menu" aria-expanded="false">
+              <svg class="icon"><use href="#i-more"></use></svg>
+            </button>
+            <div class="popup-menu popup-menu--right" id="more-menu" role="menu" hidden>
+              <button class="popup-menu__item" role="menuitem" id="open-search"><svg class="icon"><use href="#i-search"></use></svg>Search</button>
+              <button class="popup-menu__item" role="menuitem" id="open-settings"><svg class="icon"><use href="#i-settings"></use></svg>Settings</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="main-content" id="main-content" tabindex="-1"></main>
+
+      <nav class="navigation-bar" aria-label="Main navigation">
+        <button class="navigation-item is-selected" data-page="todo" type="button" aria-current="page">
+          <span class="navigation-item__indicator"><svg class="icon"><use href="#i-check-circle"></use></svg></span>
+          <span class="navigation-item__label">Todo</span>
+        </button>
+        <button class="navigation-item" data-page="notes" type="button">
+          <span class="navigation-item__indicator"><svg class="icon"><use href="#i-note"></use></svg></span>
+          <span class="navigation-item__label">Notes</span>
+        </button>
+        <button class="navigation-item" data-page="focus" type="button">
+          <span class="navigation-item__indicator"><svg class="icon"><use href="#i-focus"></use></svg></span>
+          <span class="navigation-item__label">Focus</span>
+        </button>
+        <button class="navigation-item" data-page="donation" type="button">
+          <span class="navigation-item__indicator"><svg class="icon"><use href="#i-coffee"></use></svg></span>
+          <span class="navigation-item__label">Donation</span>
+        </button>
+        <button class="navigation-item" data-page="trash" type="button">
+          <span class="navigation-item__indicator"><svg class="icon"><use href="#i-trash"></use></svg></span>
+          <span class="navigation-item__label">Trash</span>
+        </button>
+      </nav>
+
+      <div class="fab-actions" id="fab-actions" hidden>
+        <button class="fab-action" id="quick-add-note" type="button">
+          <span class="fab-action__icon"><svg class="icon"><use href="#i-edit"></use></svg></span><span>Note</span>
+        </button>
+        <button class="fab-action" id="quick-add-todo" type="button">
+          <span class="fab-action__icon"><svg class="icon"><use href="#i-check-circle"></use></svg></span><span>Add todo</span>
+        </button>
+      </div>
+      <button class="fab" id="fab" type="button" aria-label="Add" aria-expanded="false" hidden>
+        <svg class="icon fab__icon"><use href="#i-add"></use></svg>
+      </button>
+      <div class="snackbar" id="snackbar" role="status" aria-live="polite" hidden></div>
+      <div class="connection-banner" id="connection-banner" role="status" hidden>You're offline. Your saved items are still here.</div>
+    </div>
+
+    <dialog class="app-dialog" id="editor-dialog">
+      <form class="dialog-content" id="editor-form">
+        <div class="dialog-heading">
+          <h2 id="editor-title">Add todo</h2>
+          <button class="icon-button icon-button--small" type="button" data-close-dialog aria-label="Close">
+            <svg class="icon"><use href="#i-close"></use></svg>
+          </button>
+        </div>
+        <div class="dialog-fields" id="task-fields">
+          <label class="field-label">Task
+            <input class="text-field" id="task-title" type="text" maxlength="120" placeholder="What needs doing?" autocomplete="off">
+            <span class="field-error" id="task-title-error" hidden>A task needs a name.</span>
+          </label>
+          <label class="field-label">Details <span class="optional-label">Optional</span>
+            <textarea class="text-field text-field--multiline" id="task-details" maxlength="500" placeholder="Add a little more detail"></textarea>
+          </label>
+          <div class="field-label">When is it due?
+            <div class="choice-group" role="group" aria-label="Choose when the task is due">
+              <button class="choice-pill" id="date-today" type="button"><svg class="icon"><use href="#i-calendar"></use></svg>Today</button>
+              <button class="choice-pill" id="date-tomorrow" type="button"><svg class="icon"><use href="#i-calendar"></use></svg>Tomorrow</button>
+              <button class="choice-pill" id="date-custom-button" type="button">Choose date</button>
+            </div>
+            <input class="date-input" id="task-due-date" type="date" aria-label="Custom due date">
+            <div class="time-picker-row">
+              <button class="choice-pill time-toggle" id="task-time-toggle" type="button" aria-expanded="false">Add time</button>
+              <input class="date-input time-input is-hidden" id="task-due-time" type="time" aria-label="Custom due time" hidden>
+              <button class="time-clear" id="task-time-clear" type="button" hidden>Remove time</button>
+            </div>
+          </div>
+        </div>
+        <div class="dialog-fields" id="note-fields" hidden>
+          <label class="field-label">Title
+            <input class="text-field" id="note-title" type="text" maxlength="120" placeholder="Give your note a name" autocomplete="off">
+            <span class="field-error" id="note-title-error" hidden>A note needs a title.</span>
+          </label>
+          <label class="field-label">Your note <span class="optional-label">Optional</span>
+            <textarea class="text-field text-field--multiline note-body-field" id="note-body" maxlength="4000" placeholder="Write anything you want to remember"></textarea>
+          </label>
+        </div>
+        <div class="dialog-actions">
+          <button class="text-button" type="button" data-close-dialog>Cancel</button>
+          <button class="filled-button" type="submit" id="editor-save">Save</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="app-dialog app-dialog--compact" id="confirm-dialog">
+      <form class="dialog-content" id="confirm-form">
+        <h2 id="confirm-title">Delete forever?</h2>
+        <p class="dialog-description" id="confirm-message"></p>
+        <div class="dialog-actions">
+          <button class="text-button" type="button" data-close-dialog>Cancel</button>
+          <button class="filled-button filled-button--danger" type="submit">Delete forever</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="app-dialog app-dialog--compact" id="settings-dialog">
+      <div class="dialog-content">
+        <div class="settings-mark"><svg class="icon"><use href="#i-check-circle"></use></svg></div>
+        <h2>TaskKar</h2>
+        <p class="dialog-description">A little space for what matters today. Your todos and notes are stored only on this device. TaskKar works offline and never sends your data anywhere.</p>
+        <div class="settings-meta"><span>Appearance</span><span><svg class="icon"><use href="#i-sun"></use></svg> Dark · Mono</span></div>
+        <div class="settings-meta"><span>Version</span><span>1.0</span></div>
+        <div class="dialog-actions">
+          <button class="outlined-button" type="button" id="install-button" hidden>Install TaskKar</button>
+          <button class="filled-button" type="button" data-close-dialog>Done</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
